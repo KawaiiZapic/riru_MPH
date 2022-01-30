@@ -32,7 +32,6 @@ then
   then
     touch "$TARGET_DIR"/prefer_system
   fi
-  rm "$ORIG_DIR"/prefer_system 2> /dev/null
   set_perm_recursive "$TARGET_DIR" 0 0 0755 0644
   chcon -R u:object_r:magisk_file:s0 "$TARGET_DIR"
 fi
