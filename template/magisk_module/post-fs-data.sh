@@ -15,11 +15,14 @@ fi
 
 ORIG_DIR=/data/misc/riru/modules/mipush_fake/packages
 TARGET_DIR=/data/misc/mph/config/packages
-rm "$TARGET_DIR"/*
-for package in "$ORIG_DIR"/*
-do
-  rename="$(echo "$package" | sed -e 's/^[0-9]\+.//g')"
-  cp "$ORIG_DIR/$package" "$TARGET_DIR/$rename"
-done
-set_perm_recursive "$TARGET_DIR" 0 0 0755 0644
-chcon -R u:object_r:magisk_file:s0 "$TARGET_DIR"
+if [ -d "$ORIG_DIR" ] && [ -d "$TARGET_DIR" ];
+then
+  rm "$TARGET_DIR"/* 2> /dev/null
+  for package in "$ORIG_DIR"/*
+    do
+      rename="$(echo $(basename "$package") | sed -E "s/^[0-9]+.//g")"
+      cp $package "$TARGET_DIR"/$rename
+    done
+  set_perm_recursive "$TARGET_DIR" 0 0 0755 0644
+  chcon -R u:object_r:magisk_file:s0 "$TARGET_DIR"
+fi
