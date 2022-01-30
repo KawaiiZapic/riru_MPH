@@ -28,7 +28,7 @@ then
     rename="$(echo $(basename "$package") | sed -E "s/^[0-9]+.//g")"
     cp $package "$TARGET_DIR"/$rename
   done
-  if [ PREFER_SYSTEM -eq 1];
+  if [ PREFER_SYSTEM -eq 1 ];
   then
     touch "$TARGET_DIR"/prefer_system
   fi
