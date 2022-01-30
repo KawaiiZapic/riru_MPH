@@ -14,9 +14,9 @@ else
 fi
 
 ORIG_DIR=/data/misc/riru/modules/mipush_fake/packages
-TARGET_DIR= /data/misc/mph/config/packages
-rm "$ORIG_DIR/*"
-for package in "$ORIG_DIR/*"
+TARGET_DIR=/data/misc/mph/config/packages
+rm "$TARGET_DIR"/*
+for package in "$ORIG_DIR"/*
 do
   rename="$(echo "$package" | sed -e 's/^[0-9]\+.//g')"
   cp "$ORIG_DIR/$package" "$TARGET_DIR/$rename"
