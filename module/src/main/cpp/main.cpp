@@ -80,6 +80,7 @@ namespace Config {
 #define CONFIG_PATH "/data/misc/mph/config"
 #define PROPS_PATH CONFIG_PATH "/properties"
 #define PACKAGES_PATH CONFIG_PATH "/packages"
+#define OLD_PACKAGES_PATH "/data/misc/riru/modules/mipush_fake/packages"
 
     static std::map<std::string, Property *> props;
     static std::unordered_set<std::string> packages;
@@ -142,6 +143,13 @@ namespace Config {
         });
         foreach_dir(PACKAGES_PATH, [](int, struct dirent *entry) {
             auto name = entry->d_name;
+            Packages::Add(name);
+            LOGV("add package %s", name);
+        });
+        foreach_dir(OLD_PACKAGES_PATH, [](int, struct dirent *entry) {
+            auto name = entry->d_name;
+            // Cut off UID in the filename
+            while(*name++ != '.');
             Packages::Add(name);
             LOGV("add package %s", name);
         });

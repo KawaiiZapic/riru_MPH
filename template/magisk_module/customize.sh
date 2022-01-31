@@ -86,7 +86,6 @@ CONFIG_PATH="/data/misc/mph/config"
 
 if [ ! -d /data/misc/mph ]
 then
-  rm -rf /data/misc/mph
   mkdir /data/misc/mph
 fi
 
@@ -106,40 +105,6 @@ fi
 if [ ! -d "$CONFIG_PATH/packages" ]; then
     ui_print "- Creating default configuration (2)"
     mkdir -p "$CONFIG_PATH/packages"
-    
-    touch "$CONFIG_PATH/packages/prefer_system"
-    
-    touch "$CONFIG_PATH/packages/cmb.pb"
-    touch "$CONFIG_PATH/packages/cn.adidas.app"
-    touch "$CONFIG_PATH/packages/com.autonavi.minimap"
-    touch "$CONFIG_PATH/packages/com.coolapk.market"
-    touch "$CONFIG_PATH/packages/com.dianping.v1"
-    touch "$CONFIG_PATH/packages/com.eastmoney.android.fund"
-    touch "$CONFIG_PATH/packages/com.eg.android.AlipayGphone"
-    touch "$CONFIG_PATH/packages/com.huami.watch.hmwatchmanager"
-    touch "$CONFIG_PATH/packages/com.icbc"
-    touch "$CONFIG_PATH/packages/com.sankuai.meituan"
-    touch "$CONFIG_PATH/packages/com.smzdm.client.android"
-    touch "$CONFIG_PATH/packages/com.starbucks.cn"
-    touch "$CONFIG_PATH/packages/com.taobao.idlefish"
-    touch "$CONFIG_PATH/packages/com.taobao.taobao"
-    touch "$CONFIG_PATH/packages/com.tencent.weread"
-    touch "$CONFIG_PATH/packages/com.tigerbrokers.stock"
-    touch "$CONFIG_PATH/packages/com.wudaokou.hippo"
-    touch "$CONFIG_PATH/packages/com.xes.jazhanghui.activity"
-    touch "$CONFIG_PATH/packages/com.xiaomi.hm.health"
-    touch "$CONFIG_PATH/packages/com.xiaomi.smarthome"
-    touch "$CONFIG_PATH/packages/com.xiaomi.wearable"
-    touch "$CONFIG_PATH/packages/com.ximalaya.ting.android"
-    touch "$CONFIG_PATH/packages/cool.dingstock.mobile"
-    touch "$CONFIG_PATH/packages/me.ele"
-    touch "$CONFIG_PATH/packages/org.xinkb.blackboard.android"
-    touch "$CONFIG_PATH/packages/com.jingdong.app.mall"
-    touch "$CONFIG_PATH/packages/com.tmri.app.main"
-    touch "$CONFIG_PATH/packages/com.chinaworld.main"
-    touch "$CONFIG_PATH/packages/com.max.xiaoheihe"
-    touch "$CONFIG_PATH/packages/tv.danmaku.bili"
-    touch "$CONFIG_PATH/packages/cmb.pb"
 fi
 
 set_perm_recursive /data/misc/mph 0 0 0755 0644
